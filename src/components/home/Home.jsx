@@ -3,7 +3,7 @@ import axios from "axios";
 import { showSnackbar } from "../../utils/snackbarService";
 import { Button } from "@mui/material";
 import ViewCard from "../card/viewCard/viewCard";
-import MainCard from "../card/mainCard/mainCard";
+import MainCard from "../card/mainCard/MainCard";
 
 
 let localData;
