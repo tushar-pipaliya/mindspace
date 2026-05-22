@@ -1,0 +1,20 @@
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+body{
+  background-color: #bedbff !important;
+ 
+}
+
+
+.main_titile {
+  background-image: linear-gradient(to right, rgb(212, 0, 255), blue); 
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.main_div{
+   margin: 0 180px;
+}
