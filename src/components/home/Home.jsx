@@ -28,16 +28,16 @@ function Home() {
     }, []);
 
     useEffect(() => {
-        if (localState) {
-            let storedPreferencesString = localStorage.getItem('kshit');
-            console.log(storedPreferencesString, 'kshit-without parse')
-            const dataConvertar = JSON.parse(storedPreferencesString);
-            console.log(dataConvertar, 'dataConvertar')
-            setNewCard([...dataConvertar].reverse())
+    if (localState) {
+        const storedPreferencesString =
+            localStorage.getItem('kshit');
 
-        }
+        const dataConvertar =
+            JSON.parse(storedPreferencesString) || [];
 
-    }, [localState])
+        setNewCard([...dataConvertar].reverse());
+    }
+}, [localState]);
 
     console.log(localData, 'localData')
 
@@ -94,29 +94,34 @@ function Home() {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+    e.preventDefault();
 
-        const newEntry = {
-            id: Date.now(),
-            value: selectedValue
-        };
-
-        const oldData = JSON.parse(localStorage.getItem('kshit')) || [];
-
-        const updatedData = [...oldData, newEntry];
-
-        localStorage.setItem('kshit', JSON.stringify(updatedData));
-
-        setNewCard(updatedData.reverse());
-
-        setSelectedValue({
-            mood: '',
-            activity: '',
-            desc: '',
-            date: ''
-        });
-        getDate()
+    const newEntry = {
+        id: Date.now(),
+        value: selectedValue
     };
+
+    const oldData =
+        JSON.parse(localStorage.getItem('kshit')) || [];
+
+    const updatedData = [...oldData, newEntry];
+
+    localStorage.setItem(
+        'kshit',
+        JSON.stringify(updatedData)
+    );
+
+    setNewCard([...updatedData].reverse());
+
+    setSelectedValue({
+        mood: '',
+        activity: '',
+        desc: '',
+        date: ''
+    });
+
+    getDate();
+};
 
 
     // =========================|| DELETE CARD ||=======================
