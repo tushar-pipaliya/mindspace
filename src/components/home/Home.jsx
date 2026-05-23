@@ -131,104 +131,166 @@ function Home() {
     };
 
     console.log(selectedValue, 'kshit------newcard parent')
-    return (
-        <div className='main_div bg-blue-200 h-screen'>
-            <h1 className='main_titile text-5xl font-bold text-center pt-12 '>Welcome to MindSpace 🌱</h1>
-            <p className='text-center mt-10 font-semibold text-xl text-gray-600'>Your Safe Space to Reflect & Grow.</p>
-            <div className=''>
-                <div className='btn text-center mt-10 w-2/2'>
-                    <button className='rounded-full px-6 mr-6  py-2 bg-white text-blue-600 font-bold hover:shadow-xl duration-300'><a href="/#details">Start Journaling</a></button>
-                    <button className='rounded-full px-6 py-2 bg-blue-600 text-white font-bold hover:shadow-xl duration-300'><a href="/#entry">View My Entries</a></button>
-                </div>
-            </div>
+   return (
+<div className="main_div bg-blue-200 min-h-screen py-10 px-4 sm:px-8 md:px-12 lg:px-20 xl:px-32 2xl:px-44">
+        {/* HERO SECTION */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+            Welcome to MindSpace 🌱
+        </h1>
 
+        <p className="text-center mt-5 font-semibold text-base sm:text-lg md:text-xl text-gray-600 px-3">
+            Your Safe Space to Reflect & Grow.
+        </p>
 
-            <div className='box mt-30 w-2/2 '>
-                <div className='shadow-xl bg-white h-36 text-center py-6 rounded-xl flex flex-col justify-between'>
-                    <p className='font-semibold text-xl text-gray-600 '> <i>{quote}</i></p>
-                    <p onClick={fetchQuoteHandle} className='text-blue-500  hover:underline cursor-pointer font-medium '>New Quote</p>
-                </div>
-            </div>
+        {/* BUTTONS */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+            <button className="rounded-full px-6 py-3 bg-white text-blue-600 font-bold hover:shadow-xl duration-300 w-full sm:w-auto">
+                <a href="/#details">Start Journaling</a>
+            </button>
 
-            <div className='box mt-10 w-2/2 justify-center flex-col items-center '>
-                <form onSubmit={handleSubmit} >
-                    <div id='details' className='shadow-xl bg-white  py-6 rounded-xl grid grid-cols-1 gap-4'>
-                        <h1 className='text-3xl font-bold text-center'>How are you feeling today?</h1>
-                        <div className='choose_type grid grid-cols-1 md:grid-cols-2 gap-4 px-10'>
-                            <div className='w-full '>
-                                <p className='text-start mb-1 font-semibold'>Your Mood</p>
-
-                                <select
-                                    name="mood"
-                                    className="border-2 w-full p-2 rounded-xl"
-                                    value={selectedValue.mood}
-                                    onChange={handleChange}
-                                    required
-                                >
-                                    <option value="">Select Mood</option>
-
-                                    {moodOption.map(option => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                            <div className=''>
-                                <p className='mb-1 font-semibold'>Title</p>
-                                <input value={selectedValue.activity}
-
-                                    name='activity'
-                                    maxLength={40}
-                                    onChange={handleChange} required className='border-2 w-full p-2 rounded-xl' type="text" placeholder="e.g. A peaceful morning walk (max 40 characters)" />
-                                 
-                            </div>
-                        </div>
-                        <div className='thought px-10 mt-3'>
-
-                            <label className='mb-1 font-semibold'>
-                                Your Thought
-                                <textarea
-                                    value={selectedValue.desc}
-                                    required
-                                    name='desc'
-                                    onChange={handleChange}
-                                    placeholder='Write about your day, feelings, or anything your mind'
-                                    rows={6} className='w-full border-2 rounded-2xl p-2' />
-                            </label>
-                        </div>
-                        <div id='entry' className='text-center'>
-                            <button type='submit' className=' rounded-full px-6 py-2 bg-gradient-to-r  text-white font-semibold from-indigo-500 via-purple-500 to-pink-500 w-42 hover:shadow-xl/20 duration-150'>Save Entry</button>
-                        </div>
-                    </div>
-                </form>
-                <h1 className='text-3xl mt-10 font-bold text-center mb-4'>
-                    My Journal 📔
-                </h1>
-                {newCard?.length === 0 && (
-                    <div className='box  w-2/2 pb-10 journal  transition-all duration-500 ease-in-out'>
-
-
-                        <div className='bg-white text-center py-6 rounded-xl'>
-                            <p className='font-semibold text-gray-600'>
-                                "No entries yet. Start by writing your first journal entry!"
-                            </p>
-                        </div>
-                    </div>
-                )}
-
-
-            </div>
-            <div className='grid grid-cols-4 gap-5 !pb-5'>
-                {
-                    newCard?.map(card => (
-                        <MainCard key={card.id} selectv={card.value} deleteCardData={handleDelete} id={card.id} />
-                    ))
-                }
-            </div>  
+            <button className="rounded-full px-6 py-3 bg-blue-600 text-white font-bold hover:shadow-xl duration-300 w-full sm:w-auto">
+                <a href="/#entry">View My Entries</a>
+            </button>
         </div>
 
-    )
+        {/* QUOTE BOX */}
+        <div className="max-w-5xl mx-auto mt-12">
+            <div className="shadow-xl bg-white min-h-[150px] text-center py-6 px-5 rounded-xl flex flex-col justify-between">
+                <p className="font-semibold text-base sm:text-lg md:text-xl text-gray-600 break-words">
+                    <i>{quote}</i>
+                </p>
+
+                <p
+                    onClick={fetchQuoteHandle}
+                    className="text-blue-500 hover:underline cursor-pointer font-medium mt-4"
+                >
+                    New Quote
+                </p>
+            </div>
+        </div>
+
+        {/* FORM */}
+        <div className="max-w-5xl mx-auto mt-10 flex flex-col items-center">
+            <form onSubmit={handleSubmit} className="w-full">
+                <div
+                    id="details"
+                    className="shadow-xl bg-white py-6 rounded-xl w-full"
+                >
+                    <h1 className="text-2xl sm:text-3xl font-bold text-center px-4">
+                        How are you feeling today?
+                    </h1>
+
+                    {/* INPUTS */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 px-5 sm:px-10 mt-6">
+                        {/* Mood */}
+                        <div className="w-full">
+                            <p className="text-start mb-2 font-semibold">
+                                Your Mood
+                            </p>
+
+                            <select
+                                name="mood"
+                                className="border-2 w-full p-3 rounded-xl outline-none"
+                                value={selectedValue.mood}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">
+                                    Select Mood
+                                </option>
+
+                                {moodOption.map(option => (
+                                    <option
+                                        key={option.value}
+                                        value={option.value}
+                                    >
+                                        {option.label}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+
+                        {/* Title */}
+                        <div className="w-full">
+                            <p className="mb-2 font-semibold">
+                                Title
+                            </p>
+
+                            <input
+                                value={selectedValue.activity}
+                                name="activity"
+                                maxLength={40}
+                                onChange={handleChange}
+                                required
+                                className="border-2 w-full p-3 rounded-xl outline-none"
+                                type="text"
+                                placeholder="e.g. A peaceful morning walk (max 40 characters)"
+                            />
+                        </div>
+                    </div>
+
+                    {/* THOUGHT */}
+                    <div className="px-5 sm:px-10 mt-5">
+                        <label className="font-semibold block">
+                            Your Thought
+
+                            <textarea
+                                value={selectedValue.desc}
+                                required
+                                name="desc"
+                                onChange={handleChange}
+                                placeholder="Write about your day, feelings, or anything your mind"
+                                rows={6}
+                                className="w-full border-2 rounded-2xl p-4 mt-2 resize-none outline-none"
+                            />
+                        </label>
+                    </div>
+
+                    {/* BUTTON */}
+                    <div
+                        id="entry"
+                        className="flex justify-center mt-6 px-5"
+                    >
+                        <button
+                            type="submit"
+                            className="rounded-full px-8 py-3 bg-gradient-to-r text-white font-semibold from-indigo-500 via-purple-500 to-pink-500 hover:shadow-xl duration-200 w-full sm:w-auto"
+                        >
+                            Save Entry
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            {/* JOURNAL TITLE */}
+            <h1 className="text-2xl sm:text-3xl mt-10 font-bold text-center mb-4">
+                My Journal 📔
+            </h1>
+
+            {/* EMPTY STATE */}
+            {newCard?.length === 0 && (
+                <div className="w-full max-w-5xl pb-10 transition-all duration-500 ease-in-out">
+                    <div className="bg-white text-center py-6 px-5 rounded-xl shadow-lg">
+                        <p className="font-semibold text-gray-600 text-sm sm:text-base">
+                            "No entries yet. Start by writing your first journal entry!"
+                        </p>
+                    </div>
+                </div>
+            )}
+        </div>
+
+        {/* CARDS */}
+        <div className="grid grid-cols-1 max-w-5xl mx-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-5 mt-5">
+            {newCard?.map(card => (
+                <MainCard
+                    key={card.id}
+                    selectv={card.value}
+                    deleteCardData={handleDelete}
+                    id={card.id}
+                />
+            ))}
+        </div>
+    </div>
+);
 }
 
 export default Home
