@@ -231,7 +231,7 @@ function Home() {
 
                     {/* THOUGHT */}
                     <div className="px-5 sm:px-10 mt-5">
-                        <label className="font-semibold block">
+                        <label className=" block">
                             Your Thought
 
                             <textarea
