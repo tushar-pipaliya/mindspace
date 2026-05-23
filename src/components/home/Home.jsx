@@ -33,7 +33,7 @@ function Home() {
             console.log(storedPreferencesString, 'kshit-without parse')
             const dataConvertar = JSON.parse(storedPreferencesString);
             console.log(dataConvertar, 'dataConvertar')
-            setNewCard(dataConvertar)
+            setNewCard([...dataConvertar].reverse())
 
         }
 
@@ -279,7 +279,7 @@ function Home() {
         </div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 max-w-5xl mx-auto sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-5 mt-5">
+        <div className="grid grid-cols-1 max-w-5xl mx-a sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 pb-5 mt-5">
             {newCard?.map(card => (
                 <MainCard
                     key={card.id}
