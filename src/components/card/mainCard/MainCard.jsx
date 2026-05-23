@@ -2,7 +2,7 @@ import React from 'react'
 import ViewCard from '../viewCard/viewCard';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Tooltip from "@mui/material/Tooltip";
-import DeleteCard from '../deleteCard/deleteCard';
+import DeleteCard from '../deleteCard/DeleteCard';
 
 
 
