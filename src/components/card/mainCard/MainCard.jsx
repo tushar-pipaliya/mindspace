@@ -17,7 +17,7 @@ function MainCard({ selectv, deleteCardData, id }) {
       : selectv.desc;
 
 
-  const previewActivity = selectv.activity.length > activityLimit ? selectv.activity.slice(0, activityLimit) + "..." : selectv.activityLimit;
+  const previewActivity = selectv.activity.length > activityLimit ? selectv.activity.slice(0, activityLimit) + "..." : selectv.activity;
   const deleteData = () => {
     deleteCardData(id)
   }
